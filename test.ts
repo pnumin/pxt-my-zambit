@@ -3,7 +3,7 @@
 namespace basic {
 
     //% block
-    export function h2() {
+    export function 안녕() {
 
     }
 
