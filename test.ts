@@ -3,7 +3,7 @@
 namespace basic {
 
     //% block
-    export function h() {
+    export function h2() {
 
     }
 
@@ -12,7 +12,7 @@ namespace basic {
 
 
     //% block
-    export function 안녕() {
+    export function h1() {
 
     }
 }
