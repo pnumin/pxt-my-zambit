@@ -2,15 +2,16 @@
 namespace basic {
 
     //% block
-    export function helloWorld() {
+    export function 안녕() {
 
     }
 
     // note that Caml casing yields lower case
     // block text with spaces
 
+
     //% block
-    export function camlCaseTwo() {
+    export function 안녕() {
 
     }
 }
