@@ -4,8 +4,14 @@
 namespace zambit {
     //% block
     export function helloZambit() {
-
+        basic.showString("Zambit")
     }
 
-   
+    //% block="helloZambit x = $x text = $text"
+    export function helloZambitNum(x: number) {
+        for (let i = 1; i <= x; i++) {
+            basic.showString("Zambit" + i.toString())
+        }
+    }
+
 }

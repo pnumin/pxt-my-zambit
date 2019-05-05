@@ -1,1 +1,2 @@
 
+basic.showNumber(0)
