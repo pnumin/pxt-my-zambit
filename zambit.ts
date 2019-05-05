@@ -5,13 +5,17 @@
 
 namespace zambit {
     //% block
-    //% group="others"
     export function helloZambit() {
-        basic.showString("Zambit")
+        if (input.buttonIsPressed(Button.A)) {
+            basic.showString("Zam")
+        }
+        else {
+            basic.showString("bit")
+        }
+        
     }
 
     //% block="helloZambitNum x = $x"
-    //% group="others"
     export function helloZambitNum(x: number) {
         for (let i = 1; i <= x; i++) {
             basic.showString("Z" + i.toString())
