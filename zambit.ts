@@ -1,6 +1,8 @@
 // 여기에 코드를 추가하세요.
 
 //% color=#222222 weight=110 icon="\uf121" block="zambit"
+//% groups="['Fruits', 'Veggies']"
+
 namespace zambit {
     //% block
     export function helloZambit() {
@@ -14,21 +16,27 @@ namespace zambit {
         }
     }
 
-    /**
-     * Render a boolean as a down/up toggle
-     */
-    //% block="$down"
-    //% down.shadow="toggleDownUp"
-    export function downUp(down: boolean): boolean {
-        return down;
+    //% block
+    //% group="Veggies"
+    export function potato() {
+
     }
-    
-    /**
-     * Render a boolean as an up/down toggle
-     */
-    //% block="$up"
-    //% up.shadow="toggleUpDown"
-    export function upDown(up: boolean): boolean {
-        return up;
+
+    //% block
+    //% group="Veggies"
+    export function bean() {
+
+    }
+
+    //% block
+    //% group="Fruits"
+    export function apple() {
+
+    }
+
+    //% block
+    //% group="Fruits"
+    export function banana() {
+
     }
 }
