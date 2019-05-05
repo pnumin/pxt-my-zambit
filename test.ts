@@ -1,6 +1,7 @@
 // tests go here; this will not be compiled when this package is used as a library
 
-namespace basic {
+//% color=116 weight=100 icon="\uf121" block="zambit Blocks"
+namespace zambit {
 
     //% block
     export function 안녕() {
