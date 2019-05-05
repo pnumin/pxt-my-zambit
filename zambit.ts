@@ -7,10 +7,10 @@ namespace zambit {
         basic.showString("Zambit")
     }
 
-    //% block="helloZambit x = $x text = $text"
+    //% block="helloZambit x = $x
     export function helloZambitNum(x: number) {
         for (let i = 1; i <= x; i++) {
-            basic.showString("Zambit" + i.toString())
+            basic.showString("Z" + i.toString())
         }
     }
 

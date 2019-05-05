@@ -1,2 +1,2 @@
 
-basic.showNumber(0)
+zambit.helloZambitNum(3)
