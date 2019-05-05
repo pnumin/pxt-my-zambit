@@ -10,9 +10,12 @@ namespace zambit {
             basic.showString("Zam")
         })
 
-
         input.onButtonPressed(Button.B, function () {
             basic.showString("bit")
+        })
+
+        input.onGesture(Gesture.Shake, function () {
+            basic.showIcon(IconNames.Heart)
         })
     }
 
