@@ -4,8 +4,7 @@
     "description": "",
     "dependencies": {
         "core": "*",
-        "radio": "*",
-        "pxt-my-zambit": "workspace:86476081-7365-4479-9dca-7f5b2f7a0c52"
+        "radio": "*"
     },
     "files": [
         "README.md",
