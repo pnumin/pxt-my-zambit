@@ -6,13 +6,14 @@
 namespace zambit {
     //% block
     export function helloZambit() {
-        if (input.buttonIsPressed(Button.A)) {
+        input.onButtonPressed(Button.A, function () {
             basic.showString("Zam")
-        }
-        else {
+        })
+
+
+        input.onButtonPressed(Button.B, function () {
             basic.showString("bit")
-        }
-        
+        })
     }
 
     //% block="helloZambitNum x = $x"
