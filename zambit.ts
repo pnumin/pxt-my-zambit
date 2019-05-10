@@ -16,7 +16,7 @@ namespace zambit {
             pins.digitalWritePin(DigitalPin.P6, 1)
         }
 
-        basic.showNumber(x)
+        return x
 
     }
 
