@@ -6,19 +6,17 @@
 namespace zambit {
     //% block="zamPin x = $x"
     export function zamPin(x: number) {
-        pins.digitalWritePin(DigitalPin.P5, 1)
-
-        if (pins.digitalReadPin(DigitalPin.P5)) {
-            basic.showLeds(`
-                . . . . .
-                . . . . .
-                . . # . .
-                . . . . .
-                . . . . .
-                `)
+        if (x == 4) {
+            pins.digitalWritePin(DigitalPin.P4, 1)
+        }
+        else if (x == 5) {
+            pins.digitalWritePin(DigitalPin.P5, 1)
+        }
+        else if (x == 6) {
+            pins.digitalWritePin(DigitalPin.P6, 1)
         }
 
-
+        basic.showNumber(x)
 
     }
 
