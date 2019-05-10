@@ -4,8 +4,28 @@
 //% groups="['others', 'Fruits', 'Veggies']"
 
 namespace zambit {
+    //% block="zamPin x = $x"
+    export function zamPin(x: number) {
+        pins.digitalWritePin(DigitalPin.P5, 1)
+
+        if (pins.digitalReadPin(DigitalPin.P5)) {
+            basic.showLeds(`
+                . . . . .
+                . . . . .
+                . . # . .
+                . . . . .
+                . . . . .
+                `)
+        }
+
+
+
+    }
+
+
     //% block
     export function helloZambit() {
+
         input.onButtonPressed(Button.A, function () {
             basic.showString("Zam")
         })
@@ -26,27 +46,4 @@ namespace zambit {
         }
     }
 
-    //% block
-    //% group="Veggies"
-    export function potato() {
-
-    }
-
-    //% block
-    //% group="Veggies"
-    export function bean() {
-
-    }
-
-    //% block
-    //% group="Fruits"
-    export function apple() {
-
-    }
-
-    //% block
-    //% group="Fruits"
-    export function banana() {
-
-    }
 }
