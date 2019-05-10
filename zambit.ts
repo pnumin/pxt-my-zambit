@@ -5,7 +5,7 @@
 
 namespace zambit {
     //% block="zamPin x = $x"
-    export function zamPin(x: number): number {
+    export function zamPin(x: number)  {
         if (x == 4) {
             pins.digitalWritePin(DigitalPin.P4, 1)
         }
@@ -15,9 +15,6 @@ namespace zambit {
         else if (x == 6) {
             pins.digitalWritePin(DigitalPin.P6, 1)
         }
-
-        return x
-
     }
     //% block="zamPinCheck x = $x"
     export function zamPinCheck(x: number): boolean {
