@@ -1,11 +1,18 @@
 // 여기에 코드를 추가하세요.
-
 //% color=#222222 weight=110 icon="\uf121" block="zambit"
 //% groups="['others', 'Fruits', 'Veggies']"
 
 namespace zambit {
     //% block="zamPin x = $x"
-    export function zamPin(x: number)  {
+    export function zamLed(x: number) {
+        led.plot(0, 0);
+
+    }
+
+
+
+    //% block="zamPin x = $x"
+    export function zamPin(x: number) {
         if (x == 4) {
             pins.digitalWritePin(DigitalPin.P4, 1)
         }
@@ -19,13 +26,13 @@ namespace zambit {
     //% block="zamPinCheck x = $x"
     export function zamPinCheck(x: number): boolean {
         if (x == 4 && pins.digitalReadPin(DigitalPin.P4)) {
-            return true 
+            return true
         }
         else if (x == 5 && pins.digitalReadPin(DigitalPin.P5)) {
-            return true     
+            return true
         }
         else if (x == 6 && pins.digitalReadPin(DigitalPin.P6)) {
-            return true   
+            return true
         }
         else return false
 
