@@ -6,10 +6,6 @@ namespace zambit {
     //% block="zamPin x = $x"
     export function zamLed(x: string) {
 
-        const matrix: number[][] = [[1, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0]];
-        let i = 0;
-        let j = 0;
-
         for (let idx = 0; idx < x.length; idx++) {
             if (x.charAt(idx) == '가') {
                 zamLedShow(0);
@@ -27,7 +23,7 @@ namespace zambit {
 
     }
 
-    export function zamLedShow(x: number) {
+    function zamLedShow(x: number) {
         const matrix: number[][] = [[1, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0],
         [0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 1, 0],
         [1, 1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 1, 0]];
