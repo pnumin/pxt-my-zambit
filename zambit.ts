@@ -4,12 +4,35 @@
 
 namespace zambit {
     //% block="zamPin x = $x"
-    export function zamLed(x: number) {
-        led.plot(0, 0);
+    export function zamLed(x: string) {
+
+        const matrix: number[][] = [[1, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0]];
+        let i = 0;
+        let j = 0;
+        if (x == '가') {
+            zamLedShow(0);
+        }
+        else if (x == '나') {
+            zamLedShow(1);
+        }
 
     }
 
+    export function zamLedShow(x: number) {
+        const matrix: number[][] = [[1, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0],
+                                    [0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 1, 0]];
+        let i = 0;
+        let j = 0;
 
+        for (let idx = 0; idx < 25; idx++) {
+            if (matrix[x][idx] == 1) led.plot(i, j);
+            i = i + 1;
+            if (i % 5 == 0) {
+                i = 0;
+                j = j + 1;
+            }
+        }
+    }
 
     //% block="zamPin x = $x"
     export function zamPin(x: number) {
