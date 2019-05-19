@@ -9,18 +9,28 @@ namespace zambit {
         const matrix: number[][] = [[1, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0]];
         let i = 0;
         let j = 0;
-        if (x == '가') {
-            zamLedShow(0);
+
+        for (let idx = 0; idx < x.length; idx++) {
+            if (x.charAt(idx) == '가') {
+                zamLedShow(0);
+            }
+            else if (x.charAt(idx) == '나') {
+                zamLedShow(1);
+            }
+            else if (x.charAt(idx) == '다') {
+                zamLedShow(2);
+            }
+            basic.pause(1000)
+            basic.clearScreen()
         }
-        else if (x == '나') {
-            zamLedShow(1);
-        }
+
 
     }
 
     export function zamLedShow(x: number) {
         const matrix: number[][] = [[1, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0],
-                                    [0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 1, 0]];
+        [0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 1, 0],
+        [1, 1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 1, 0]];
         let i = 0;
         let j = 0;
 
