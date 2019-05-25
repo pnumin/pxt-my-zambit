@@ -66,6 +66,42 @@ namespace zambit {
         for (let i = 0; i < 8; i++) _registerAll(_DIGIT[i], 0)
     }
 
+    /**
+* Return a number array calculated from a 8x8 LED byte array (example: B00100000,B01000000,B10000110,B10000000,B10000000,B10000110,B01000000,B00100000)
+*/
+    //% block="Get custom character number array|from byte-array string $text" text.defl="B00100000,B01000000,B10000110,B10000000,B10000000,B10000110,B01000000,B00100000" group="2. Display text on matrixs" blockExternalInputs=true advanced=true
+    export function getCustomCharacterArray(text: string) {
+        let tempTextArray: string[] = []
+        let resultNumberArray: number[] = []
+        let currentIndex = 0
+        let currentChr = ""
+        let currentNum = 0
+        let columnNum = 0
+        if (text != null && text.length >= 0) {
+            // seperate each byte number to a string
+            while (currentIndex < text.length) {
+                tempTextArray.push(text.substr(currentIndex + 1, 8))
+                currentIndex += 10
+            }
+            for (let i = 0; i < tempTextArray.length; i++) {
+                columnNum = 0
+                // read each bit and calculate the decimal sum
+                for (let j = tempTextArray[i].length - 1; j >= 0; j--) {
+                    currentChr = tempTextArray[i].substr(j, 1)
+                    if (currentChr == "1" || currentChr == "0")
+                        currentNum = parseInt(currentChr)
+                    else
+                        currentNum = 0
+                    columnNum += (2 ** (tempTextArray[i].length - j - 1)) * currentNum
+                }
+                // generate new decimal array
+                resultNumberArray.push(columnNum)
+            }
+            return resultNumberArray
+        } else {
+            return null
+        }
+    }
 
 
     //% block="zamPin x = $x"
