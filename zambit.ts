@@ -14,5 +14,51 @@ namespace zambit {
     let _displayArray: number[] = [] // display array to show accross all matrixs
     let _rotation = 0 // rotate matrixs display for 4-in-1 modules
     let _reversed = false // reverse matrixs display order for 4-in-1 modules
+ 
+    //% block="Setup MAX7219:|Number of matrixs $num|CS(LOAD) = $cs|MOSI(DIN) = $mosi|MISO(not used) = $miso|SCK(CLK) = $sck"
+    //% num.min=1 num.defl=1 cs.defl=DigitalPin.P16 mosi.defl=DigitalPin.P15 miso.defl=DigitalPin.P14 sck.defl=DigitalPin.P13 rotate.defl=false group="1. Setup"
+    export function setup(num: number, cs: DigitalPin, mosi: DigitalPin, miso: DigitalPin, sck: DigitalPin) {
+        // set internal variables        
+        _pinCS = cs
+        _matrixNum = num
+        // prepare display array (for displaying texts; add extra 8 columns at each side as buffers)
+        for (let i = 0; i < (num + 2) * 8; i++)  _displayArray.push(0)
+        // set micro:bit SPI
+        pins.spiPins(mosi, miso, sck)
+        pins.spiFormat(8, 3)
+        pins.spiFrequency(1000000)
+        // initialize MAX7219s
+        _registerAll(_SHUTDOWN, 0) // turn off
+        _registerAll(_DISPLAYTEST, 0) // test mode off
+        _registerAll(_DECODEMODE, 0) // decode mode off
+        _registerAll(_SCANLIMIT, 7) // set scan limit to 7 (column 0-7)
+        _registerAll(_INTENSITY, 15) // set brightness to 15
+        _registerAll(_SHUTDOWN, 1) // turn on
+        clearAll() // clear screen on all MAX7219s
+    }
 
+    /**
+    * (internal function) write command and data to all MAX7219s
+    */
+    function _registerAll(addressCode: number, data: number) {
+        pins.digitalWritePin(_pinCS, 0) // LOAD=LOW, start to receive commands
+        for (let i = 0; i < _matrixNum; i++) {
+            // when a MAX7219 received a new command/data set
+            // the previous one would be pushed to the next matrix along the chain via DOUT
+            pins.spiWrite(addressCode) // command (8 bits)
+            pins.spiWrite(data) //data (8 bits)
+        }
+        pins.digitalWritePin(_pinCS, 1) // LOAD=HIGH, commands take effect
+    }
+
+    /**
+    * Turn off LEDs on all MAX7219s
+    */
+    //% block="Clear all LEDs" group="3. Basic light control"
+    export function clearAll() {
+        for (let i = 0; i < 8; i++) _registerAll(_DIGIT[i], 0)
+    }
+
+
+    
 }
