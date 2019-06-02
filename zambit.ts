@@ -115,7 +115,7 @@ namespace zambit {
             }
         }
     }
-    
+
     /**
     * Return a empty 8x8 number matrix variable
     */
@@ -130,6 +130,22 @@ namespace zambit {
             [0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0, 0, 0, 0],
+        ]
+    }
+    /**
+    * Return a full 8x8 number matrix variable
+    */
+    //% block="Full 8x8 pattern" group="4. Set custom LED pattern on matrixs" advanced=true
+    export function getFullMatrix() {
+        return [
+            [1, 1, 1, 1, 1, 1, 1, 1],
+            [1, 1, 1, 1, 1, 1, 1, 1],
+            [1, 1, 1, 1, 1, 1, 1, 1],
+            [1, 1, 1, 1, 1, 1, 1, 1],
+            [1, 1, 1, 1, 1, 1, 1, 1],
+            [1, 1, 1, 1, 1, 1, 1, 1],
+            [1, 1, 1, 1, 1, 1, 1, 1],
+            [1, 1, 1, 1, 1, 1, 1, 1],
         ]
     }
 
@@ -215,7 +231,7 @@ namespace zambit {
         }
         return matrix
     }
-   
+
     // ASCII fonts borrowed from https://github.com/lyle/matrix-led-font/blob/master/src/index.js
     let font = [" ", "!", "\"", "#", "$", "%", "&", "\'", "(", ")",
         "*", "+", ",", "-", ".", "/",
