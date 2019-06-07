@@ -13,7 +13,7 @@ namespace zambitBasic {
 
 
     //% block="zamText x = $x" group="한글"
-    export function zamLed(text: string) {
+    export function zamText(text: string) {
 
         for (let i = 0; i < text.length; i++) {
             let idx = hfont.indexOf(text.substr(i, 1))
