@@ -3,7 +3,7 @@
  * by Alan Wang
  */
 
-//% weight=100 color=#006d19 icon="\uf00a" block="MAX7219 8x8"
+//% weight=100 color=#222222 icon="\uf00a" block="Zambit8x8"
 namespace max7219_matrix {
 
     //Registers (command) for MAX7219
@@ -554,7 +554,8 @@ namespace max7219_matrix {
         "[", "\\", "]", "_", "`",
         "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l",
         "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",
-        "{", "|", "}", "~", "^"]
+        "{", "|", "}", "~", "^",
+        ]
 
     let font_matrix = [
         [0b00000000,
@@ -1006,7 +1007,7 @@ namespace max7219_matrix {
             0b00000001,
             0b00000010,
             0b00000000]]
-
+         
 }
 
 enum rotation_direction {
