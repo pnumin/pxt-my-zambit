@@ -9,7 +9,8 @@
     "files": [
         "README.md",
         "main.ts",
-        "zambit.ts"
+        "zambit.ts",
+        "zambitbasic.ts"
     ],
     "testFiles": [
         "test.ts"
