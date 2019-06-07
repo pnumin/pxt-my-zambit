@@ -34,10 +34,10 @@ namespace zambitBasic {
         let col = 0;
         for (let i = 0; i < 25; i++) {
             if (hfont_matrix[x][i] == 1) led.plot(row, col);
-            col++;
-            if (col % 5 == 0) {
-                row++;
-                col = 0;
+            row++;
+            if (row % 5 == 0) {
+                col++;
+                row = 0;
             }
         }
     }
