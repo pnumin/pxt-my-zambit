@@ -3,19 +3,24 @@
 //% groups="['others', 'Fruits', 'Veggies']"
 
 namespace zambitBasic {
-   //% block="zamPin x = $x"
-    export function zamLed(x: string) {
+    //한글 정의 
+    let hfont = ["가", "나", "다"]
+    let hfont_matrix = [
+        [1, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0],
+        [0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 1, 0],
+        [1, 1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 1, 0]
+    ]
 
-        for (let idx = 0; idx < x.length; idx++) {
-            if (x.charAt(idx) == '가') {
-                zamLedShow(0);
+
+    //% block="zamPin x = $x" group="한글"
+    export function zamLed(text: string) {
+
+        for (let i = 0; i < text.length; i++) {
+            let idx = hfont.indexOf(text.substr(i, 1))
+            if (idx >= 0) {
+                zamLedShow(idx);
             }
-            else if (x.charAt(idx) == '나') {
-                zamLedShow(1);
-            }
-            else if (x.charAt(idx) == '다') {
-                zamLedShow(2);
-            }
+
             basic.pause(1000)
             basic.clearScreen()
         }
@@ -23,74 +28,20 @@ namespace zambitBasic {
 
     }
 
+    //LED 
     function zamLedShow(x: number) {
-        const matrix: number[][] = [
-            [1, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 0, 1, 1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0],
-            [0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 1, 0],
-            [1, 1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 1, 0]];
-        let i = 0;
-        let j = 0;
-
-        for (let idx = 0; idx < 25; idx++) {
-            if (matrix[x][idx] == 1) led.plot(i, j);
-            i = i + 1;
-            if (i % 5 == 0) {
-                i = 0;
-                j = j + 1;
+        let row = 0;
+        let col = 0;
+        for (let i = 0; i < 25; i++) {
+            if (hfont_matrix[x][i] == 1) led.plot(row, col);
+            col++;
+            if (col % 5 == 0) {
+                row++;
+                col = 0;
             }
         }
     }
 
-    //% block="zamPin x = $x"
-    export function zamPin(x: number) {
-        if (x == 4) {
-            pins.digitalWritePin(DigitalPin.P4, 1)
-        }
-        else if (x == 5) {
-            pins.digitalWritePin(DigitalPin.P5, 1)
-        }
-        else if (x == 6) {
-            pins.digitalWritePin(DigitalPin.P6, 1)
-        }
-    }
     
-    //% block="zamPinCheck x = $x"
-    export function zamPinCheck(x: number): boolean {
-        if (x == 4 && pins.digitalReadPin(DigitalPin.P4)) {
-            return true
-        }
-        else if (x == 5 && pins.digitalReadPin(DigitalPin.P5)) {
-            return true
-        }
-        else if (x == 6 && pins.digitalReadPin(DigitalPin.P6)) {
-            return true
-        }
-        else return false
-
-
-    }
-
-    //% block
-    export function helloZambit() {
-
-        input.onButtonPressed(Button.A, function () {
-            basic.showString("Zam")
-        })
-
-        input.onButtonPressed(Button.B, function () {
-            basic.showString("bit")
-        })
-
-        input.onGesture(Gesture.Shake, function () {
-            basic.showIcon(IconNames.Heart)
-        })
-    }
-
-    //% block="helloZambitNum x = $x"
-    export function helloZambitNum(x: number) {
-        for (let i = 1; i <= x; i++) {
-            basic.showString("Z" + i.toString())
-        }
-    }
 
 }
