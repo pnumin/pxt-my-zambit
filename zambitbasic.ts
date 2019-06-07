@@ -12,7 +12,7 @@ namespace zambitBasic {
     ]
 
 
-    //% block="zamText x = $x" group="한글"
+    //% block="zamText text = $text" group="한글"
     export function zamText(text: string) {
 
         for (let i = 0; i < text.length; i++) {
