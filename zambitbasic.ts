@@ -11,7 +11,6 @@ namespace zambitBasic {
         [1, 1, 0, 1, 0, 1, 0, 0, 1, 0, 1, 0, 0, 1, 1, 1, 1, 0, 1, 0, 0, 0, 0, 1, 0]
     ]
 
-
     //% block="zamText text = $text" group="한글"
     export function zamText(text: string) {
 
@@ -28,6 +27,22 @@ namespace zambitBasic {
 
     }
 
+    //% block="zamTextScroll text = $text" group="한글"
+    export function zamTextScroll(text: string) {
+
+        for (let i = 0; i < text.length; i++) {
+            let idx = hfont.indexOf(text.substr(i, 1))
+            if (idx >= 0) {
+                zamLedScroll(idx);
+            }
+            basic.pause(1000)
+            basic.clearScreen()
+        }
+
+
+    }
+
+
     //LED 
     function zamLedShow(x: number) {
         let row = 0;
@@ -42,6 +57,25 @@ namespace zambitBasic {
         }
     }
 
-    
+    //LED scroll
+    function zamLedScroll(x: number) {
+        let ledsize = 5 ;
+        for(let i=1; i < ledsize; i++) {
+            let row = 0;
+            let col = ledsize - 1;
+            for (let j = 0; j < ledsize * i - 1; j++) {
+                if (hfont_matrix[x][i] == 1) led.plot(row, col);
+                row++;
+                if (row % 5 == 0) {
+                    col--;
+                    row = 0;
+                }
+            }
+            basic.pause(1000);
+            basic.clearScreen()
+        }
+        
+    }
+
 
 }
